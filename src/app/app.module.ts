@@ -11,6 +11,7 @@ import { PizzeriaService } from './services/pizzeria.service';
 import { MenuClientComponent } from './menus/menu-client.component';
 import { FormsModule } from '@angular/forms';
 import { SigninComponent } from './starting-page/signin.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SigninComponent } from './starting-page/signin.component';
     RouterModule.forRoot(AppRouts),
     HttpClientModule,
     NoopAnimationsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     PizzeriaService
