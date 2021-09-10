@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -12,13 +11,26 @@ import { MenuClientComponent } from './menus/menu-client.component';
 import { FormsModule } from '@angular/forms';
 import { SigninComponent } from './starting-page/signin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatButtonModule} from '@angular/material/button';
+import { MatIconModule} from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatGridList, MatGridTile} from '@angular/material/grid-list';
+import { HomeComponent } from './starting-page/home.component';
+import { ToastrService } from "./common/toastr.service";
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import {MatCardHarness} from '@angular/material/card/testing';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SigninComponent,
-    MenuClientComponent
+    MenuClientComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,10 +38,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     NoopAnimationsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    MatSliderModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTabsModule,
+    SlickCarouselModule,
+    MatCardModule
   ],
   providers: [
-    PizzeriaService
+    PizzeriaService,
+    ToastrService
   ],
   bootstrap: [AppComponent]
 })

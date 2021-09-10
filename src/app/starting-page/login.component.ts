@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { ToastrService } from "../common/toastr.service";
 import { users } from "../models/pizzeria.model";
 import { PizzeriaService } from "../services/pizzeria.service";
 
@@ -29,7 +30,9 @@ export class LoginComponent{
     password:any;
     user: users;
 
-    constructor(private pizzeriaService: PizzeriaService, private router: Router){
+    constructor(private pizzeriaService: PizzeriaService, 
+        private router: Router,
+        private toastrService: ToastrService){
     }
     /*
     ngOnInit(){
@@ -50,15 +53,15 @@ export class LoginComponent{
     fnValidatePassword()
     {
         if(this.user[0].length == 0){
-            alert("Correo no es valido, inténtelo nuevamente");
+            this.toastrService.error("Error","Correo no es valido, inténtelo nuevamente");
         }
         else if(this.user[0][0]?.password == this.password){
-            alert("Login exitoso");
+            this.toastrService.success("Login","Login exitoso");
             this.router.navigate(["/menu"]);
         }
         else {
             console.log(this.user);
-            alert("Contraseña incorrecta, inténtelo nuevamente");
+            this.toastrService.error("Error","Contraseña incorrecta, inténtelo nuevamente");
         }
     }
 }

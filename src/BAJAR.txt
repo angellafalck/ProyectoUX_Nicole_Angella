@@ -1,0 +1,4 @@
+npm install ngx-slick-carousel
+npm install slick-carousel    
+npm install jquery
+npm install toastr  
