@@ -40,7 +40,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
   .divPanel{
     border-radius: 25px;
-    height: 250px;
+    height: 200px;
+    width: 50%;
+    margin-left:25%;
+    background-color:#886839 ;
+  }
+
+  .divPanelBig{
+    border-radius: 25px;
+    height: 270px;
     width: 50%;
     margin-left:25%;
     background-color:#886839 ;
@@ -50,5 +58,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     width: 90%;  
     margin: auto;  
   }
+
+  #left{
+    float: left;
+    width: 1000px;
+}
+
+#right{
+   float: right;
+   background-color: #E4B455;
+    width: 500px;
+    height: 600px;
+}
+
+#container{
+    width: 1500px;
+}
+
   
 
