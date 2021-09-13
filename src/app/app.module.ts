@@ -22,6 +22,10 @@ import { ToastrService } from "./common/toastr.service";
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import {MatCardHarness} from '@angular/material/card/testing';
 import {MatCardModule} from '@angular/material/card';
+import { MenuAdminComponent } from './menus/menu-admin.component';
+import { MenuThumbnailComponent } from './menus/menu-thumbnail.component';
+import { ProductDetailComponent } from './menus/product-details/product-details.component';
+import { OrderThumbnailComponent } from './menus/order-details/order-thumbnail.component';
 
 
 @NgModule({
@@ -30,7 +34,11 @@ import {MatCardModule} from '@angular/material/card';
     LoginComponent,
     SigninComponent,
     MenuClientComponent,
-    HomeComponent
+    HomeComponent,
+    MenuAdminComponent,
+    MenuThumbnailComponent,
+    ProductDetailComponent,
+    OrderThumbnailComponent
   ],
   imports: [
     BrowserModule,

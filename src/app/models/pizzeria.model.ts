@@ -16,3 +16,10 @@ export class products
     price?: number;
     imageUrl?: string;
 }
+
+export class orderDetail
+{
+    productName ?: string;
+    price ?: number;
+    quantity ?: number;
+}

@@ -53,11 +53,14 @@ export class LoginComponent{
     fnValidatePassword()
     {
         if(this.user[0].length == 0){
-            this.toastrService.error("Error","Correo no es valido, inténtelo nuevamente");
+            this.toastrService.error("Error","Correo no es valido, inténtelo nuevamente o regístrese");
         }
         else if(this.user[0][0]?.password == this.password){
             this.toastrService.success("Login","Login exitoso");
-            this.router.navigate(["/menu"]);
+            if (this.user[0][0].idRole == 2)
+                this.router.navigateByUrl(`${this.user[0][0].idUser}/menu`);
+            else if(this.user[0][0].idRole == 1)
+                this.router.navigateByUrl(`${this.user[0][0].idUser}/admin/menu`);
         }
         else {
             console.log(this.user);

@@ -30,20 +30,18 @@ export class SigninComponent{
         });
     }
 
-    fnValidateEmail(data: any)
+    fnValidateEmail(dataForm: any)
     {
         if(this.user[0].length == 0) //validar que no exista el correo
         {
             this.toastrService.success("Sign In","Cuenta creada exitosamente");
-            console.log(data);
-            try{
-                this.pizzeriaService.postUser(data).subscribe((response) => {
-                    console.log("entra");
-                    this.router.navigate(["/menu"]);
-                });
-            } catch(HttpErrorResponse){
-                console.log("erroooor");
-            }
+            
+            this.pizzeriaService.postUser(dataForm).subscribe((data) => {
+                this.user = data;
+                console.log(this.user);
+                this.router.navigateByUrl(`${this.user[0][0].idUser}/menu`);
+            });
+            
         } 
         else
         {

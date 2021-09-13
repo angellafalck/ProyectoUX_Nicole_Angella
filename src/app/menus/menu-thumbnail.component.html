@@ -1,0 +1,20 @@
+<mdb-card>
+    <img src="./assets/images/{{product?.imageUrl}}" width="300" height="300">
+    <mdb-card-body>
+      <mdb-card-title>
+        <h4>{{product.title}}</h4>
+      </mdb-card-title>
+      <mdb-card-text>
+        {{product.description}}
+        L. {{product?.price}}
+      </mdb-card-text>
+      <div>
+        <button type="button" class="btn btn-secondary">Detalle</button>
+        <button type="button" 
+                class="btn btn-success" 
+                style="margin-left: 30%;"
+                (click)="addToOrder()"
+                >Ordenar</button>
+      </div>
+    </mdb-card-body>
+  </mdb-card>
