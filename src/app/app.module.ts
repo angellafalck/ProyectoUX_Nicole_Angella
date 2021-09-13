@@ -26,6 +26,8 @@ import { MenuAdminComponent } from './menus/menu-admin.component';
 import { MenuThumbnailComponent } from './menus/menu-thumbnail.component';
 import { ProductDetailComponent } from './menus/product-details/product-details.component';
 import { OrderThumbnailComponent } from './menus/order-details/order-thumbnail.component';
+import { ReviewThumbnailComponent } from './menus/product-details/review-thumbnail.component';
+import { StarComponent } from './common/star.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { OrderThumbnailComponent } from './menus/order-details/order-thumbnail.c
     MenuAdminComponent,
     MenuThumbnailComponent,
     ProductDetailComponent,
-    OrderThumbnailComponent
+    OrderThumbnailComponent,
+    ReviewThumbnailComponent,
+    StarComponent
   ],
   imports: [
     BrowserModule,

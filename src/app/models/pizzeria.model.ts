@@ -23,3 +23,13 @@ export class orderDetail
     price ?: number;
     quantity ?: number;
 }
+
+export class review
+{
+    idReview: number;
+    idProduct: number;
+    idUser: number;
+    comment: string;
+    stars: number;
+    name: string;
+}

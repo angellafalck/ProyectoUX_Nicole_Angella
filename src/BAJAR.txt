@@ -2,3 +2,4 @@ npm install ngx-slick-carousel (ya)
 npm install slick-carousel (ya)
 npm install jquery (ya)
 npm install toastr (ya)
+npm install font-awesome --save

@@ -25,9 +25,12 @@ export class MenuClientComponent{
         {}
 
     ngOnInit(){
+        this.order = this.pizzeriaService.getOrder();
+
         this.pizzeriaService.getUserById(this.routes.snapshot.params["idUser"])
             .subscribe( data => {
                 this.user = data[0][0];
+                console.log("entra");
             });
 
         this.pizzeriaService.getProducts().subscribe(data => {
@@ -37,13 +40,18 @@ export class MenuClientComponent{
         });
     }
 
+    //Al clickear el botón de "Detalle" en product
+    fnGoToProductDetail(){
+        this.pizzeriaService.updateOrder(this.order);
+    }
+
     //Al clickear el botón de "Ordenar" en producto
-    fnAddToOrder(data: any){
+    fnAddToOrder(productData: any){
 
         //validación que el prod no esté en carrito ya
         let isInChart: boolean = false;
         this.order.forEach( (detail) => {
-            if(detail.productName == data.title)
+            if(detail.productName == productData.title)
             {
                 this.fnAddQuantity(detail);
                 isInChart = true;
@@ -54,15 +62,15 @@ export class MenuClientComponent{
         if(isInChart) return;
 
         let newOrder: orderDetail = { 
-            productName: data.title,
-            price: data.price,
+            productName: productData.title,
+            price: productData.price,
             quantity: 1
         };
        // newOrder.productName = data.title;
 
         this.order.push(newOrder);
         console.log(newOrder);
-        alert(`${data.title} agregado al carrito`);
+        alert(`${productData.title} agregado al carrito`);
         
     }
 

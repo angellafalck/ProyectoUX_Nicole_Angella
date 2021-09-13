@@ -15,7 +15,10 @@ import { Router } from "@angular/router";
               L. {{product?.price}}
             </mat-card-subtitle>
             <div>
-              <button type="button" class="btn btn-secondary">Detalle</button>
+              <button type="button" 
+                      class="btn btn-secondary"
+                      (click)="fnDetalle()"
+                      >Detalle</button>
               <button type="button" 
                       class="btn btn-success" 
                       style="margin-left: 30%;"
@@ -41,16 +44,20 @@ import { Router } from "@angular/router";
 export class MenuThumbnailComponent{
 
     @Input() product:any;
+    @Input() idUser: number;
     @Output() evtAddOrder = new EventEmitter();
+    @Output() evtProductDetail = new EventEmitter();
 
     constructor(private router: Router){
     }
 
     fnDetalle(){
+      console.log("IdUser desde menuThumbnail: " + this.idUser);
+      this.evtProductDetail.emit(this.product);
       //ir a detalle de producto
-
+      this.router.navigateByUrl(`${this.idUser}/pizzas/${this.product.idProduct}`);
       //this.router.navigate(['/clases', id]);
-        //this.router.navigateByUrl(`/clases/${id}`);
+      //this.router.navigateByUrl(`/clases/${id}`);
     }
 
     fnOrdenar(){
