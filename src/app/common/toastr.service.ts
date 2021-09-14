@@ -13,5 +13,7 @@ export class ToastrService{
     information(mensaje: string, titulo: string){
         toastr.information(mensaje,titulo);
     }
-    warning(mensaje: string, titulo: string){}
+    warning(mensaje: string, titulo: string){
+        toastr.console.warn(mensaje,titulo);
+    }
 }

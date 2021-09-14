@@ -2,18 +2,24 @@
     <span class= "header-font"><img src="../assets/images/pizza_logo.png"width="100" height="100">Crunchy Royal Pizza</span>
 </mat-toolbar>
 <div>
-  <nav class="navbar navbar-expand-lg" style="background-color: #597718;">
+  <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: #597718;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#"></a>
-            <a class="nav-link" style="margin-left: auto; color: #F9EEC9;"[routerLink]="[]" >Menú</a>
-            <a class="nav-link" style="margin-left: 950%; color: #F9EEC9;"[routerLink]="['/home']" >Chat</a>
-          </div>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" style="color: #F9EEC9;"[routerLink]="['/home']" >Cerrar Sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: #F9EEC9; font-weight: bold;"[routerLink]="[]" >Menú</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: #F9EEC9;"[routerLink]="['/home']" >Chat</a>
+            </li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -53,6 +59,7 @@
       class="btn btn-success" 
       style="margin: 15px; position:absolute;"
       [disabled]="order.length == 0"
+      (click) = "fnSendOrder()"
       >Procesar mi Orden</button>
   </div>
 </div>

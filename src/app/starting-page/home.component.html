@@ -1,38 +1,44 @@
 <mat-toolbar style= "height:15%; background-color: #770D15; background-size: 20%;" >
     <span class= "header-font"><img src="../assets/images/pizza_logo.png"width="100" height="100" >Crunchy Royal Pizza</span>
 </mat-toolbar>
-    <div>
-          <nav class="navbar navbar-expand-lg" style="background-color: #597718;">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#"></a>
-                    <a class="nav-link" style="margin-left: 900%; color: #F9EEC9;"[routerLink]="['/login']" >Login</a>
-                    <a class="nav-link" style="color: #F9EEC9;"[routerLink]="['/signin']">SignIn</a>
-                  </div>
-              </div>
-            </div>
-          </nav>
-    </div>
-    <hr />
-    <div>  
-        <div class="row">  
-          <div class= "paragraphDark-font">  
-            Horneando Sonrisas 
-          </div>  
-        </div>  
-      </div>  
-      <hr style="background-color:black" />  
-      <div class="row">  
-        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">  
-          <div ngxSlickItem *ngFor="let image of images" class="slide">  
-            <img src="{{ image.img }}" width="100%" height="400">  
-          </div>  
-        </ngx-slick-carousel>  
+<div>
+  <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: #597718;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" style="color: #F9EEC9; font-weight: bold;" aria-current="page" [routerLink]="['/home']">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: #F9EEC9;"[routerLink]="['/login']" >Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: #F9EEC9;"[routerLink]="['/signin']">Registrarse</a>
+          </li>
+        </ul>
       </div>
+    </div>
+  </nav>
+</div>
+<hr />
+<div>  
+    <div class="row">  
+      <div class= "paragraphDark-font">  
+        Horneando Sonrisas 
+      </div>  
+    </div>  
+  </div>  
+  <hr style="background-color:black" />  
+  <div class="row">  
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">  
+      <div ngxSlickItem *ngFor="let image of images" class="slide">  
+        <img src="{{ image.img }}" width="100%" height="400">  
+      </div>  
+    </ngx-slick-carousel>  
+  </div>
 
        

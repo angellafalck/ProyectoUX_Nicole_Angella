@@ -56,7 +56,7 @@ export class LoginComponent{
             this.toastrService.error("Error","Correo no es valido, inténtelo nuevamente o regístrese");
         }
         else if(this.user[0][0]?.password == this.password){
-            this.toastrService.success("Login","Login exitoso");
+            this.toastrService.success("Registro","Registro exitoso");
             if (this.user[0][0].idRole == 2)
                 this.router.navigateByUrl(`${this.user[0][0].idUser}/menu`);
             else if(this.user[0][0].idRole == 1)

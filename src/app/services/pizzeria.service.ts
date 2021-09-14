@@ -48,6 +48,15 @@ export class PizzeriaService
         return this.http.post<users>("http://localhost:3000/api/users", user, options);
     }
 
+    postReview(review:review): Observable<review>{
+        const options = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json"
+            })
+        }
+        return this.http.post<review>(`http://localhost:3000/api/reviews`, review, options);
+    }
+
     updateOrder(_order: orderDetail[]){
         order = _order;
     }

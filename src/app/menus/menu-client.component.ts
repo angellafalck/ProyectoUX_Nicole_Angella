@@ -1,5 +1,6 @@
 import { Component, NgModule } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ToastrService } from "../common/toastr.service";
 import { orderDetail, products, users } from "../models/pizzeria.model";
 import { PizzeriaService } from "../services/pizzeria.service";
 
@@ -21,7 +22,8 @@ export class MenuClientComponent{
 
     constructor(private pizzeriaService: PizzeriaService, 
         private router: Router,
-        private routes: ActivatedRoute)
+        private routes: ActivatedRoute,
+        private toastrService: ToastrService)
         {}
 
     ngOnInit(){
@@ -30,13 +32,10 @@ export class MenuClientComponent{
         this.pizzeriaService.getUserById(this.routes.snapshot.params["idUser"])
             .subscribe( data => {
                 this.user = data[0][0];
-                console.log("entra");
             });
 
         this.pizzeriaService.getProducts().subscribe(data => {
             this.productsList = data;
-            console.log(this.productsList);
-            console.log(this.user);
         });
     }
 
@@ -69,8 +68,7 @@ export class MenuClientComponent{
        // newOrder.productName = data.title;
 
         this.order.push(newOrder);
-        console.log(newOrder);
-        alert(`${productData.title} agregado al carrito`);
+        this.toastrService.success("agregado al carrito", `${productData.title}`);
         
     }
 
@@ -106,5 +104,10 @@ export class MenuClientComponent{
                 this.order.splice(i, 1); 
             }
         }
+    }
+
+    fnSendOrder(){
+        //enviar correo y vaciar this.order
+        console.log("Enviar orden");
     }
 }

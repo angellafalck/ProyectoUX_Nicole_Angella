@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ToastrService } from "src/app/common/toastr.service";
 import { orderDetail, products, review } from "src/app/models/pizzeria.model";
 import { PizzeriaService } from "src/app/services/pizzeria.service";
 
@@ -12,10 +13,13 @@ export class ProductDetailComponent{
     order: orderDetail[] = [];
     idUser: number;
     reviews: review[][] = [];
+    comment: any;
+    stars: any;
 
     constructor(private pizzeriaService: PizzeriaService, 
         private router: Router,
-        private routes:ActivatedRoute)
+        private routes:ActivatedRoute,
+        private toastrService: ToastrService)
     {   }
 
     ngOnInit(){
@@ -61,10 +65,28 @@ export class ProductDetailComponent{
             this.order.push(newOrder);
         }
 
-        alert(`${this.product.title} agregado al carrito`);
+        this.toastrService.success("agregado al carrito", `${this.product.title}`);
 
         //redireccionar al menú con carrito
         this.router.navigateByUrl(`${this.idUser}/menu`);
+    }
+
+    fnAddReview(dataForm: any){
+        let newReview: review = {
+            idReview: 0,
+            idProduct: this.product.idProduct,
+            idUser: this.idUser,
+            comment: dataForm.comment,
+            stars: dataForm.stars,
+            name: ""
+        };
+
+        this.pizzeriaService.postReview(newReview).subscribe((data) => {
+            this.reviews.push(data[0][0]);
+            this.toastrService.success("Reseña","Reseña agregada correctamente");
+            this.router.navigateByUrl(`${this.idUser}/menu`);
+        });
+
     }
 
 }
