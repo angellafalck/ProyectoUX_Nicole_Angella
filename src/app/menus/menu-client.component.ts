@@ -5,6 +5,7 @@ import { orderDetail, products, users } from "../models/pizzeria.model";
 import { PizzeriaService } from "../services/pizzeria.service";
 
 
+
 @Component({
     templateUrl: './menu-client.component.html',
     styles: [`
@@ -19,6 +20,8 @@ export class MenuClientComponent{
     productsList: products[][] = [];
     user: users;
     order: orderDetail[] = [];
+
+   
 
     constructor(private pizzeriaService: PizzeriaService, 
         private router: Router,
@@ -106,8 +109,63 @@ export class MenuClientComponent{
         }
     }
 
+    //Funcion devuelve pizzas + cantidad
+    fnTotaltoEmail(){
+        let productos: any="";
+
+        this.order.forEach( (detail) => {
+            productos+= detail.productName+" " + detail.quantity + " "+ detail.price;
+            productos+=" ";
+        })
+
+        return productos;
+    }
+
+    //Funcion que devuelve string total
+    fnTotalStringtoEmail(){
+            let total: any="";
+    
+            total= this.fnTotaltoEmail() + " Total: "+ this.fnTotal();
+            return total;
+        }
+
     fnSendOrder(){
         //enviar correo y vaciar this.order
         console.log("Enviar orden");
+        
+        let user = {
+            name: this.user?.name,
+            email: "crunchyroyalpizza2021@gmail.com",
+            text1: this.fnTotalStringtoEmail(),
+}
+          this.pizzeriaService.sendEmail("http://localhost:3000/sendmail", user.name).subscribe(
+            data => {
+              let res:any = data; 
+              console.log(
+                `👏 ${user.text1}  and mail has been sent and the message id is ${res.messageId}`
+              );
+            },
+            
+          );
+    }
+
+    fnSendTextOrder(){
+
+          //enviar correo y vaciar this.order
+          console.log("Enviar orden");
+        
+          let message = {
+              text: this.fnTotalStringtoEmail()
+  }
+            this.pizzeriaService.getMailText("http://localhost:3000/sendmail", message.text).subscribe(
+              data => {
+                let res:any = data; 
+                console.log(
+                  `👏 ${message.text}  and mail has been sent and the message id is ${res.messageId}`
+                );
+              },
+              
+            );
+
     }
 }

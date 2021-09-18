@@ -63,6 +63,23 @@ export class PizzeriaService
 
     //Deletes
 
+    //correo
+    httpGet(url) {
+        return this.http.get(url);
+      }
+    
+      httpPost(url, {}) {
+        return this.http.post(url, { name: "Subrat" });
+      }
+    
+      sendEmail(url, data) {
+        return this.http.post(url, data);
+      }
+
+      getMailText(url, data) {
+        return this.http.get(url, data);
+      }
+
 }
 
 var order: orderDetail [] = []
