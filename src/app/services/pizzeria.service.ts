@@ -1,14 +1,14 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { orderDetail, products, review, users } from "../models/pizzeria.model";
+import {  orderDetail, products, review, users } from "../models/pizzeria.model";
 
 @Injectable()
 export class PizzeriaService
 {
     constructor(private http: HttpClient){
     }
-
+ 
     //Gets
     getUsers(): Observable<users[][]>{
         return this.http.get<users[][]>("http://localhost:3000/api/users");
@@ -64,22 +64,10 @@ export class PizzeriaService
     //Deletes
 
     //correo
-    httpGet(url) {
-        return this.http.get(url);
-      }
-    
-      httpPost(url, {}) {
-        return this.http.post(url, { name: "Subrat" });
-      }
-    
-      sendEmail(url, data) {
+    sendEmail(url, data) {
         return this.http.post(url, data);
       }
-
-      getMailText(url, data) {
-        return this.http.get(url, data);
-      }
-
+    
 }
 
 var order: orderDetail [] = []

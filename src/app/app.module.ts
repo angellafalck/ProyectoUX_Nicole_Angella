@@ -28,6 +28,7 @@ import { ProductDetailComponent } from './menus/product-details/product-details.
 import { OrderThumbnailComponent } from './menus/order-details/order-thumbnail.component';
 import { ReviewThumbnailComponent } from './menus/product-details/review-thumbnail.component';
 import { StarComponent } from './common/star.component';
+import { OrderDetailssComponent } from './menus/orderdetailss.component';
 
 
 @NgModule({
@@ -42,7 +43,9 @@ import { StarComponent } from './common/star.component';
     ProductDetailComponent,
     OrderThumbnailComponent,
     ReviewThumbnailComponent,
-    StarComponent
+    StarComponent,
+    OrderDetailssComponent
+
   ],
   imports: [
     BrowserModule,

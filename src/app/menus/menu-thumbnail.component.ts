@@ -4,8 +4,8 @@ import { Router } from "@angular/router";
 @Component({
     selector: 'menu-thumbnail',
     template: `
-    <mat-card>
-          <img src="./assets/images/{{product?.imageUrl}}" width="300" height="300">
+    <mat-card >
+          <img src="./assets/images/{{product?.imageUrl}}" width="200" height="200">
           <mat-card-content>
             <mat-card-title>
               <h4>{{product.title}}</h4>
