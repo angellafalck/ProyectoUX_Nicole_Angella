@@ -125,22 +125,22 @@ export class MenuClientComponent{
         return productos;
     }
 
-        //Funcion que devuelve string total
-        fnTotalStringtoEmail(){
-            let total: any="";
-    
-            total= this.fnTotaltoEmail() + " Total: "+ this.fnTotal();
-            return total;
-        }
+    //Funcion que devuelve string total
+    fnTotalStringtoEmail(){
+        let total: any="";
+
+        total= this.fnTotaltoEmail() + " Total: "+ this.fnTotal();
+        return total;
+    }
     
 
         
-        fnSendOrder(){
-            this.data=this.fnTotalStringtoEmail();
-            addElement(this.data);
+    fnSendOrder(){
+        this.data=this.fnTotalStringtoEmail();
+        addElement(this.data);
 
-            this.router.navigateByUrl(`/orderdetailss`);
-        }
+        this.router.navigateByUrl(`${this.user.idUser}/orderdetailss`);
+    }
         
 
 }

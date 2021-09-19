@@ -11,9 +11,9 @@ export const AppRouts: Routes = [
     {path: ":idUser/pizzas/:idProduct", component: ProductDetailComponent},
     {path: ":idUser/admin/menu", component: MenuAdminComponent},
     {path: ":idUser/menu", component: MenuClientComponent},
+    {path: ":idUser/orderdetailss", component:OrderDetailssComponent},
     {path: "signin", component: SigninComponent},
     {path: "login", component: LoginComponent},
     {path: "home", component:HomeComponent},
-    {path: "orderdetailss", component:OrderDetailssComponent},
     {path: "", redirectTo: "/home", pathMatch: "full"}
 ];

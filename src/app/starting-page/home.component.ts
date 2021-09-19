@@ -7,7 +7,11 @@ import { PizzeriaService } from "../services/pizzeria.service";
 })
 export class HomeComponent{
 
-    constructor(private pizzeriaService: PizzeriaService, private router: Router){
+    constructor(private pizzeriaService: PizzeriaService, 
+      private router: Router) {}
+
+    ngOnInit(){
+      this.pizzeriaService.updateOrder([]);
     }
 
     images = [  
