@@ -19,6 +19,7 @@ export class OrderDetailssComponent{
     number: any;
     data:any;
     idUser: number;
+    isAdmin: boolean;
 
     constructor(private pizzeriaService: PizzeriaService, 
         private router: Router,
@@ -28,6 +29,9 @@ export class OrderDetailssComponent{
 
     ngOnInit(){
         this.idUser =  +this.routes.snapshot.params["idUser"];
+
+        this.isAdmin = this.routes.snapshot.url[1].path === 'admin';
+        console.log(this.isAdmin);
     }
 
     fnEnviar(dataForm: any)
@@ -43,11 +47,18 @@ export class OrderDetailssComponent{
             console.log(`👏 ${object}  and mail has been sent`);
             //this.toastrService.success("enviada", `Orden`);  
             this.pizzeriaService.updateOrder([]);
-            this.router.navigateByUrl(`${this.idUser}/menu`);  
+            this.fnBackToMenu(); 
         });
          
     }
 
+    fnBackToMenu(){
+        //redireccionar a menú de admin
+        if(this.isAdmin) 
+            this.router.navigateByUrl(`${this.idUser}/admin/menu`);
+        else //redireccionar al menú con carrito
+            this.router.navigateByUrl(`${this.idUser}/menu`);
+    }
 
 
 }

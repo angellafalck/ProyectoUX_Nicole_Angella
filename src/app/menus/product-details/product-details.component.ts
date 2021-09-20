@@ -12,6 +12,7 @@ export class ProductDetailComponent{
     product?: products;
     order: orderDetail[] = [];
     idUser: number;
+    isAdmin: boolean;
     reviews: review[][] = [];
     comment: any;
     stars: any;
@@ -27,6 +28,8 @@ export class ProductDetailComponent{
         console.log(this.order);
         
         let idProd: number = +this.routes.snapshot.params["idProduct"];
+        this.isAdmin = this.routes.snapshot.url[1].path === 'admin';
+        console.log(this.isAdmin);
 
         this.pizzeriaService
             .getProductById(idProd)
@@ -67,8 +70,8 @@ export class ProductDetailComponent{
 
         this.toastrService.success("agregado al carrito", `${this.product.title}`);
 
-        //redireccionar al menú con carrito
-        this.router.navigateByUrl(`${this.idUser}/menu`);
+        //redireccionar a menú 
+        this.fnBackToMenu();
     }
 
     fnAddReview(dataForm: any){
@@ -84,9 +87,17 @@ export class ProductDetailComponent{
         this.pizzeriaService.postReview(newReview).subscribe((data) => {
             this.reviews.push(data[0][0]);
             this.toastrService.success("Reseña","Reseña agregada correctamente");
-            this.router.navigateByUrl(`${this.idUser}/menu`);
+            this.fnBackToMenu();
         });
 
+    }
+
+    fnBackToMenu(){
+        //redireccionar a menú de admin
+        if(this.isAdmin) 
+            this.router.navigateByUrl(`${this.idUser}/admin/menu`);
+        else //redireccionar al menú con carrito
+            this.router.navigateByUrl(`${this.idUser}/menu`);
     }
 
 }

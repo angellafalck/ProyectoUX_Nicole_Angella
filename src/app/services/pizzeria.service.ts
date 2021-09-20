@@ -57,11 +57,34 @@ export class PizzeriaService
         return this.http.post<review>(`http://localhost:3000/api/reviews`, review, options);
     }
 
+    postProduct(product:products){
+        const options = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json"
+            })
+        }
+        return this.http.post(`http://localhost:3000/api/products`, product, options);
+    }
+
+    //Updates - Puts
+
+    putProduct(product:products){
+        const options = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json"
+            })
+        }
+        return this.http.put(`http://localhost:3000/api/products/${product.idProduct}`, product, options);
+    }
+
     updateOrder(_order: orderDetail[]){
         order = _order;
     }
 
     //Deletes
+    deleteProduct(idProduct: number){
+        return this.http.delete(`http://localhost:3000/api/products/${idProduct}`);
+    }
 
     //correo
     sendEmail(url, data) {

@@ -29,6 +29,8 @@ import { OrderThumbnailComponent } from './menus/order-details/order-thumbnail.c
 import { ReviewThumbnailComponent } from './menus/product-details/review-thumbnail.component';
 import { StarComponent } from './common/star.component';
 import { OrderDetailssComponent } from './menus/orderdetailss.component';
+import { ProductAddComponent } from './menus/products-form/product-add.component';
+import { ProductEditComponent } from './menus/products-form/product-edit.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { OrderDetailssComponent } from './menus/orderdetailss.component';
     OrderThumbnailComponent,
     ReviewThumbnailComponent,
     StarComponent,
-    OrderDetailssComponent
+    OrderDetailssComponent,
+    ProductAddComponent,
+    ProductEditComponent
 
   ],
   imports: [

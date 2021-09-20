@@ -1,0 +1,91 @@
+<mat-toolbar style= "height:15%; background-color: #770D15; background-size: 20%;" >
+    <span class= "header-font"><img src="../assets/images/pizza_logo.png"width="100" height="100" >Crunchy Royal Pizza</span>
+    </mat-toolbar>
+
+<body background="../assets/images/pizza-background.jpeg" style="background-size: 500px 500px;">
+
+<hr />
+<div>
+    <div class="div">
+        <h1 class= "headers-font">Editar Producto</h1>
+    </div>
+</div>
+<hr />
+<div class="divPanelExtraBig paragraph-font">
+    <form #productForm="ngForm" (ngSubmit)="fnSalvar(productForm.value)">
+        <div class="form-group">
+            <label for="name">Título: </label>
+            <input
+                [(ngModel)]="title"
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                placeholder="Título de pizza..."
+                required
+            />
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción: </label>
+            <textarea
+                [(ngModel)]="description"
+                type="text"
+                class="form-control"
+                id="description"
+                name="description"
+                placeholder="Descripción..."
+                required
+            >
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="price">Precio: </label>
+            <input
+                [(ngModel)]="price"
+                type="text"
+                class="form-control"
+                id="price"
+                name="price"
+                placeholder="Precio..."
+                required
+            />
+        </div>
+        <div class="form-group">
+            <label for="imageUrl">Url de imagen: </label>
+            <input
+                [(ngModel)]="imageUrl"
+                type="text"
+                class="form-control"
+                id="imageUrl"
+                name="imageUrl"
+                placeholder="Url de imagen..."
+                required
+            />
+        </div>
+        <div class="form-group" style="margin-top: 3px;">
+            <button
+                type="button"
+                class="btn btn-outline-light"
+                style="margin-right: 15px;"
+                (click)="fnBackToMenu()"
+            >
+                Cancelar
+            </button>
+            <button
+                type="submit"
+                [disabled]="productForm.invalid"
+                style="margin-right: 15px;"
+                class="btn btn-success"
+            >
+                Salvar
+            </button>
+            <button
+                type="button"
+                class="btn btn-outline-warning"
+                (click)="fnDelete()"
+            >
+                Eliminar
+            </button>
+        </div>
+    </form>
+</div>

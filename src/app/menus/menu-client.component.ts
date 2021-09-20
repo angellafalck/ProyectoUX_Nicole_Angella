@@ -133,8 +133,7 @@ export class MenuClientComponent{
         return total;
     }
     
-
-        
+    //Al clickear "Procesar Orden"
     fnSendOrder(){
         this.data=this.fnTotalStringtoEmail();
         addElement(this.data);

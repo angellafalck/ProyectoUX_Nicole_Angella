@@ -8,21 +8,24 @@ import { orderDetail } from "src/app/models/pizzeria.model";
         type="button" 
         class="btn btn-danger"
         (click)="fnDelete()"
+        style="margin-right: 10px;"
         >X</button>
-    <span class="prodName">{{orderDetail.productName}}</span>
+    <span class="prodName" style="margin-right: 10px;">{{orderDetail.productName}}</span>
     <button 
         type="button" 
         class="btn btn-secondary btn-sm"
         (click)="fnSubsQuantity()"
         [disabled]="orderDetail.quantity < 2"
+        style="margin-right: 5px;"
         >-</button>
     <span class="quantity">{{orderDetail.quantity}}</span>
     <button 
         type="button" 
         class="btn btn-secondary btn-sm"
         (click)="fnAddQuantity()"
+        style="margin-left: 5px;"
         >+</button>
-    <span class="price">{{orderDetail.price}}</span>
+    <span class="price" style="margin-left: 10px;">L.{{orderDetail.price}}</span>
     `,
     styles: [`
         prodName: {
