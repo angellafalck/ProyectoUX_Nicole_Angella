@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
             <h4>{{product.title}}</h4>
             </mat-card-title>
           </mat-card-header>
-          <img mat-card-image src="./assets/images/{{product?.imageUrl}}" width="200" height="200">
+          <img src="./assets/images/{{product?.imageUrl}}" width="300" height="300">
           <mat-card-content>
             <mat-card-subtitle>
               {{product.description}}
@@ -18,22 +18,22 @@ import { Router } from "@angular/router";
             </mat-card-subtitle>
           </mat-card-content>
           <mat-card-actions>
-              <button mat-button type="button" 
+              <button mat-button 
+                      type="button" 
                       class="btn btn-secondary"
                       (click)="fnDetalle()"
                       >Detalle</button>
-              <button mat-button type="button" 
+              <button mat-button 
+                      type="button" 
                       class="btn btn-success" 
                       (click)="fnOrdenar()"
                       >Ordenar</button>
-          </mat-card-actions>
-          <mat-card-actions>
               <button mat-button *ngIf="fnCanEdit()"
                       type="button" 
                       class="btn btn-warning"
                       (click)="fnEdit()"
                       >Editar</button>
-            </mat-card-actions>
+          </mat-card-actions>
     </mat-card>
     `,
     styles: [ `
