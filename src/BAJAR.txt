@@ -3,6 +3,6 @@ npm install slick-carousel (ya)
 npm install jquery (ya)
 npm install toastr (ya)
 npm install font-awesome --save
-npm install nodemailer //nuevo en el backend
+npm install nodemailer 
+npm install --save angular-ai-chat-bot //nuevo no se usa
 
-para lo snuevos correos pedirle telefono num de direccion

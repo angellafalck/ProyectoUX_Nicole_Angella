@@ -118,8 +118,8 @@ export class MenuClientComponent{
         let productos: any="";
 
         this.order.forEach( (detail) => {
-            productos+= " : "+detail.productName+", "+"Cantidad: " + detail.quantity+", " + "Precio: "+ detail.price;
-            productos+=" ";
+            productos+= detail.productName+", "+"Cantidad: " + detail.quantity+", " + "Precio: "+ detail.price+", "+" ";
+            //productos+=document.write(detail.productName+", "+"Cantidad: " + detail.quantity+", " + "Precio: "+ detail.price+", " +"<br/>");
         })
 
         return productos;
