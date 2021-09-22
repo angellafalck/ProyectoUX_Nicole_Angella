@@ -15,39 +15,66 @@
     <hr />
     <div class="divPanelBig paragraph-font">
     <form #orderDetailForm="ngForm" (ngSubmit)="fnEnviar(orderDetailForm.value)">
-        <div class="form-group">
+        <div class="form-group"
+            [ngClass]="{
+                error:
+                orderDetailForm.controls.name?.invalid &&
+                orderDetailForm.controls.name?.touched
+            }"
+        >
             <label for="name">Nombre de quien recibe: </label>
+            <em *ngIf="orderDetailForm.controls.name?.invalid &&
+                orderDetailForm.controls.name?.touched"
+            >Campo requerido</em>
             <input
                 [(ngModel)]="name"
                 type="text"
                 class="form-control"
                 id="name"
                 name="name"
-                placeholder="name..."
+                placeholder="Nombre..."
                 required
             />
         </div>
-        <div class="form-group">
-            <label for="delivery">Direccion de entrega: </label>
+        <div class="form-group"
+            [ngClass]="{
+                error:
+                orderDetailForm.controls.delivery?.invalid &&
+                orderDetailForm.controls.delivery?.touched
+            }"
+        >
+            <label for="delivery">Dirección de entrega: </label>
+            <em *ngIf="orderDetailForm.controls.delivery?.invalid &&
+                orderDetailForm.controls.delivery?.touched"
+            >Campo requerido</em>
             <input
                 [(ngModel)]="delivery"
                 type="text"
                 class="form-control"
                 id="delivery"
                 name="delivery"
-                placeholder="delivery..."
+                placeholder="Dirección..."
                 required
             />
         </div>
-        <div class="form-group">
-            <label for="number">Numero de Telefono: </label>
+        <div class="form-group"
+            [ngClass]="{
+                error:
+                orderDetailForm.controls.number?.invalid &&
+                orderDetailForm.controls.number?.touched
+            }"    
+        >
+            <label for="number">Número de Telefono: </label>
+            <em *ngIf="orderDetailForm.controls.number?.invalid &&
+                orderDetailForm.controls.number?.touched"
+            >Campo requerido</em>
             <input
                 [(ngModel)]="number"
                 type="text"
                 class="form-control"
                 id="number"
                 name="number"
-                placeholder="number..."
+                placeholder="Teléfono..."
                 required
             />
         </div>

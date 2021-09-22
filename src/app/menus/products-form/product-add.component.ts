@@ -7,6 +7,12 @@ import { PizzeriaService } from "src/app/services/pizzeria.service";
 @Component({
     templateUrl: './product-add.component.html',
     styles: [`
+    em {
+        float: right;
+        margin-top:15px;
+        font-size: small; 
+        color:#770D15;
+    }
     `]
 })
 export class ProductAddComponent{
@@ -41,14 +47,19 @@ export class ProductAddComponent{
             this.toastrService.success("Producto","Producto agregado correctamente.");
             this.fnBackToMenu();
         });
-        /*this.pizzeriaService.postReview(newReview).subscribe((data) => {
-            this.reviews.push(data[0][0]);
-            this.toastrService.success("Reseña","Reseña agregada correctamente");
-            this.fnBackToMenu();
-        });*/
     }
 
     fnBackToMenu(){
         this.router.navigateByUrl(`${this.idUser}/admin/menu`);
+    }
+
+    fnHasData(): boolean{
+        if(this.title != null ||
+            this.description != null || 
+            this.price != null || 
+            this.imageUrl != null)
+            return true;
+        else
+            return false;
     }
 }

@@ -84,6 +84,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     width: 1500px;
 }
 
+.error input,
+.error select,
+.error textarea {
+    background-color: #e3c3c5;
+}
+.error ::-webkit-input-placeholder {
+    color: #999;
+}
+.error ::-moz-placeholder {
+    color: #999;
+}
+.error :-moz-placeholder {
+    color: #999;
+}
+.error :ms-input-placeholder {
+    color: #999;
+}
+
 /* SHIFT */
 nav.shift ul li a {
   position:relative;

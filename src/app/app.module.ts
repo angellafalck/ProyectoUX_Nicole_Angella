@@ -31,6 +31,7 @@ import { StarComponent } from './common/star.component';
 import { OrderDetailssComponent } from './menus/orderdetailss.component';
 import { ProductAddComponent } from './menus/products-form/product-add.component';
 import { ProductEditComponent } from './menus/products-form/product-edit.component';
+//import { ProductAddDeactivate } from './menus/products-form/product-add-deactivate.service';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { ProductEditComponent } from './menus/products-form/product-edit.compone
   ],
   providers: [
     PizzeriaService,
-    ToastrService
+    ToastrService,
+    //ProductAddDeactivate
   ],
   bootstrap: [AppComponent]
 })

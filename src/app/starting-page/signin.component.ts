@@ -8,7 +8,12 @@ import { PizzeriaService } from "../services/pizzeria.service";
     selector: 'signin',
     templateUrl: './signin.component.html',
     styles: [ `
-
+    em {
+        float: right;
+        margin-top:15px;
+        font-size: small; 
+        color:#770D15;
+    }
     ` ]
 })
 export class SigninComponent{

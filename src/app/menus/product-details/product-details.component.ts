@@ -5,7 +5,15 @@ import { orderDetail, products, review } from "src/app/models/pizzeria.model";
 import { PizzeriaService } from "src/app/services/pizzeria.service";
 
 @Component({
-    templateUrl: "./product-details.component.html"
+    templateUrl: "./product-details.component.html",
+    styles: [`
+    .emp {
+        float: right;
+        margin-top:15px;
+        font-size: small; 
+        color:#770D15;
+    }
+    `]
 })
 
 export class ProductDetailComponent{
@@ -75,6 +83,11 @@ export class ProductDetailComponent{
     }
 
     fnAddReview(dataForm: any){
+        if(dataForm.stars < 1 || dataForm.stars > 5){
+            this.toastrService.error("Reseña","Calificación fuera de rango.");
+            return;
+        }
+
         let newReview: review = {
             idReview: 0,
             idProduct: this.product.idProduct,

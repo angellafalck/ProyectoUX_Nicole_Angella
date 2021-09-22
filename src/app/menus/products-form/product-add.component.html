@@ -13,8 +13,17 @@
 <hr />
 <div class="divPanelExtraBig paragraph-font">
     <form #productForm="ngForm" (ngSubmit)="fnSalvar(productForm.value)">
-        <div class="form-group">
-            <label for="name">Título: </label>
+        <div class="form-group"
+        [ngClass]="{
+            error:
+            productForm.controls.title?.invalid &&
+            productForm.controls.title?.touched
+        }"
+        >
+            <label for="title">Título: </label>
+            <em *ngIf="productForm.controls.title?.invalid &&
+            productForm.controls.title?.touched"
+            >Campo requerido</em>
             <input
                 [(ngModel)]="title"
                 type="text"
@@ -25,8 +34,17 @@
                 required
             />
         </div>
-        <div class="form-group">
+        <div class="form-group"
+        [ngClass]="{
+            error:
+            productForm.controls.description?.invalid &&
+            productForm.controls.description?.touched
+        }"
+        >
             <label for="description">Descripción: </label>
+            <em *ngIf="productForm.controls.description?.invalid &&
+            productForm.controls.description?.touched"
+            >Campo requerido</em>
             <textarea
                 [(ngModel)]="description"
                 type="text"
@@ -38,8 +56,17 @@
             >
             </textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group"
+        [ngClass]="{
+            error:
+            productForm.controls.price?.invalid &&
+            productForm.controls.price?.touched
+        }"
+        >
             <label for="price">Precio: </label>
+            <em *ngIf="productForm.controls.price?.invalid &&
+            productForm.controls.price?.touched"
+            >Campo requerido</em>
             <input
                 [(ngModel)]="price"
                 type="text"
@@ -50,8 +77,17 @@
                 required
             />
         </div>
-        <div class="form-group">
+        <div class="form-group"
+        [ngClass]="{
+            error:
+            productForm.controls.imageUrl?.invalid &&
+            productForm.controls.imageUrl?.touched
+        }"
+        >
             <label for="imageUrl">Url de imagen: </label>
+            <em *ngIf="productForm.controls.imageUrl?.invalid &&
+            productForm.controls.imageUrl?.touched"
+            >Campo requerido</em>
             <input
                 [(ngModel)]="imageUrl"
                 type="text"
@@ -67,7 +103,8 @@
                 type="button"
                 class="btn btn-outline-light"
                 style="margin-right: 15px;"
-                (click)="fnBackToMenu()"
+                data-bs-toggle="modal" 
+                data-bs-target="#staticBackdropRegresar"
             >
                 Cancelar
             </button>
@@ -78,6 +115,28 @@
             >
                 Salvar
             </button>
+
+            <!--Modal para Cancelar-->
+            <div *ngIf="fnHasData">
+                <div class="modal fade" id="staticBackdropRegresar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel" style="color: black; font-weight: bold;">Eliminar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="color: black; font-size: medium;"> No ha salvado el producto, ¿está seguro
+                            que desea continuar?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="fnBackToMenu()">Aceptar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </form>
 </div>

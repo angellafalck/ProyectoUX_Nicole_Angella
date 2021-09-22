@@ -61,8 +61,9 @@ export class ProductEditComponent{
     }
 
     fnDelete(){
-        this.toastrService.success("Producto",`Producto eliminado`);
+        
         this.pizzeriaService.deleteProduct(this.idProduct).subscribe((data) => {
+            this.toastrService.success("Producto",`Producto eliminado`);
             this.fnBackToMenu();
         })
     }

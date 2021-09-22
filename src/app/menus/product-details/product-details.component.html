@@ -59,7 +59,16 @@
       <h5>Agregar Reseña</h5>
       <div class="row mb-3">
         <label for="stars" class="col-sm-2 col-form-label">Calificación (1-5): </label>
-        <div class="col-sm-10">
+        <div class="col-sm-10"
+          [ngClass]="{
+            error:
+            reviewForm.controls.stars?.invalid &&
+            reviewForm.controls.stars?.touched
+          }"
+        >
+          <em class="emp" *ngIf="reviewForm.controls.stars?.invalid &&
+          reviewForm.controls.stars?.touched"
+          >Campo requerido</em>
           <input 
             [(ngModel)]="stars"
             type="text" 
@@ -73,7 +82,16 @@
       </div>
       <div class="row mb-3">
         <label for="comment" class="col-sm-2 col-form-label">Comentario: </label>
-        <div class="col-sm-10">
+        <div class="col-sm-10"
+        [ngClass]="{
+          error:
+          reviewForm.controls.comment?.invalid &&
+          reviewForm.controls.comment?.touched
+        }"
+        >
+          <em class="emp" *ngIf="reviewForm.controls.comment?.invalid &&
+          reviewForm.controls.comment?.touched"
+          >Campo requerido</em>
           <textarea 
             [(ngModel)]="comment"
             type="text" 
@@ -92,4 +110,6 @@
         style="margin-left: 55%;"
         >Salvar</button>
     </form>
+    <br>
+    <br>
 </div>

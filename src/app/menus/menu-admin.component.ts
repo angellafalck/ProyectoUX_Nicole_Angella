@@ -108,6 +108,8 @@ export class MenuAdminComponent{
                 this.order.splice(i, 1); 
             }
         }
+
+        this.toastrService.success("eliminado del carrito", `${orderDetailData.productName}`);
     }
 
     //Funcion devuelve pizzas + cantidad

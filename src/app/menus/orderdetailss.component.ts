@@ -9,7 +9,12 @@ import {addElement, getElements} from "src/app/menus/detalle.js";
     selector: 'orderdetailss',
     templateUrl: './orderdetailss.component.html',
     styles: [ `
-
+        em {
+            float: right;
+            margin-top:15px;
+            font-size: small; 
+            color:#770D15;
+        }
     ` ]
 })
 export class OrderDetailssComponent{

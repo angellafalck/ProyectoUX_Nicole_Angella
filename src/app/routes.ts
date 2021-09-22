@@ -8,10 +8,15 @@ import { LoginComponent } from "./starting-page/login.component";
 import { SigninComponent } from "./starting-page/signin.component";
 import { ProductAddComponent } from "./menus/products-form/product-add.component";
 import { ProductEditComponent } from "./menus/products-form/product-edit.component";
+//import { ProductAddDeactivate } from "./menus/products-form/product-add-deactivate.service";
 
 export const AppRouts: Routes = [
     {path: ":idUser/admin/pizzas/edit/:idProduct", component:ProductEditComponent},
-    {path: ":idUser/admin/pizzas/new", component:ProductAddComponent},
+    {
+        path: ":idUser/admin/pizzas/new", 
+        component:ProductAddComponent,
+        //canDeactivate: [ProductAddDeactivate]
+    },
     {path: ":idUser/admin/pizzas/:idProduct", component: ProductDetailComponent},
     {path: ":idUser/pizzas/:idProduct", component: ProductDetailComponent},
     {path: ":idUser/admin/menu", component: MenuAdminComponent},
