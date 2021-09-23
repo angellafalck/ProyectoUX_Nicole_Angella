@@ -31,6 +31,7 @@ import { StarComponent } from './common/star.component';
 import { OrderDetailssComponent } from './menus/orderdetailss.component';
 import { ProductAddComponent } from './menus/products-form/product-add.component';
 import { ProductEditComponent } from './menus/products-form/product-edit.component';
+import { ChatComponent } from './bot/chat.component';
 //import { ProductAddDeactivate } from './menus/products-form/product-add-deactivate.service';
 
 
@@ -49,7 +50,8 @@ import { ProductEditComponent } from './menus/products-form/product-edit.compone
     StarComponent,
     OrderDetailssComponent,
     ProductAddComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    ChatComponent
 
   ],
   imports: [

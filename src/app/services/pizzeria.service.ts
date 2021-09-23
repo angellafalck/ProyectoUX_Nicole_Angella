@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
+import { io } from "socket.io-client";
 import {  orderDetail, products, review, users } from "../models/pizzeria.model";
 
 @Injectable()
@@ -90,7 +91,28 @@ export class PizzeriaService
     sendEmail(url, data) {
         return this.http.post(url, data);
       }
-    
+
+      //bot
+    public message$: BehaviorSubject<string> = new BehaviorSubject('');
+  
+    socket = io('http://localhost:8000');
+  
+    public sendMessage(message) {
+      this.socket.emit('message', message);
+    }
+  
+    public getNewMessage = () => {
+      this.socket.on('message', (message) =>{
+        this.message$.next(message);
+      });
+      
+      return this.message$.asObservable();
+    };
+  
+    sendBot(url, body) {
+      return this.http.post(url, body);
+    }
+ 
 }
 
 var order: orderDetail [] = []
