@@ -74,10 +74,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 #right{
-    float: right;
-    background-color: #E4B455;
+    float: right;;
     width: 500px;
-    height: 1292px;
 }
 
 #container{
