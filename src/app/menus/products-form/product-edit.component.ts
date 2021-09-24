@@ -7,6 +7,12 @@ import { ToastrService } from "../../common/toastr.service";
 @Component({
     templateUrl: './product-edit.component.html',
     styles: [`
+        em {
+            float: right;
+            margin-top:15px;
+            font-size: small; 
+            color:#770D15;
+        }
     `]
 })
 export class ProductEditComponent{

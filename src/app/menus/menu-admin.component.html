@@ -51,6 +51,7 @@
     </div>
     <div class="pizza-cursor" id="right"  style="padding-top: 100px;">
         <h2 style="margin-left: 20%;">Detalle de Orden</h2>
+        <hr>
         <div *ngFor="let orderDetail of order" style="margin-top: 10px;"> 
           <order-thumbnail 
               class="orderDetail" 
@@ -60,7 +61,7 @@
               (evtDelete)="fnDelete($event)">
           </order-thumbnail>
         </div>
-        <hr>
+        <hr *ngIf="order.length>0" style="border: 3px solid #770D15;">
         <em style="color: #770D15; margin-left: 15px; font-weight: bold;">Total a Pagar: Lps.{{fnTotal()}}</em><br>
         <button 
           type="button" 

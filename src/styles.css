@@ -6,6 +6,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .my-container{ background-color:#D3B786}
 
+.fondoPizzas{         
+  background-image: url(assets/images/pizza-background.jpeg);
+}
+
 .header-font{
     font-family:'Marker Felt';
     color:#F9EEC9;

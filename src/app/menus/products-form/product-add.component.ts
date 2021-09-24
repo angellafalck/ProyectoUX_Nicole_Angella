@@ -44,12 +44,12 @@ export class ProductAddComponent{
         console.log(newProduct);
 
         this.pizzeriaService.postProduct(newProduct).subscribe((data) => {
-            this.toastrService.success("Producto","Producto agregado correctamente.");
             this.fnBackToMenu();
         });
     }
 
     fnBackToMenu(){
+        this.toastrService.success("Producto","Producto agregado correctamente.");
         this.router.navigateByUrl(`${this.idUser}/admin/menu`);
     }
 

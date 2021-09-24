@@ -12,6 +12,7 @@ import { ChatComponent } from "./bot/chat.component";
 //import { ProductAddDeactivate } from "./menus/products-form/product-add-deactivate.service";
 
 export const AppRouts: Routes = [
+    {path: ":idUser/chat", component:ChatComponent},
     {path: ":idUser/admin/pizzas/edit/:idProduct", component:ProductEditComponent},
     {
         path: ":idUser/admin/pizzas/new", 
@@ -27,6 +28,5 @@ export const AppRouts: Routes = [
     {path: "signin", component: SigninComponent},
     {path: "login", component: LoginComponent},
     {path: "home", component:HomeComponent},
-    {path: "chatComponent", component:ChatComponent},
     {path: "", redirectTo: "/home", pathMatch: "full"}
 ];

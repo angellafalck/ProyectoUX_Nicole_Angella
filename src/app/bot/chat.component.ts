@@ -12,25 +12,30 @@ export class ChatComponent{
  
     newMessage: string;
     messageList: string[] = [];
-
     idUser: number;
     isAdmin: boolean;
   
-    constructor(private chatService: PizzeriaService,        private router: Router,
+    constructor(private chatService: PizzeriaService, 
+        private router: Router,
         private routes: ActivatedRoute){
 
     }
-    ngOnInit(){
+
+    ngOnInit() {
+        this.idUser =  +this.routes.snapshot.params["idUser"];
 
         this.chatService.getNewMessage().subscribe((message: string) => {
           this.messageList.push(message);
         })
-      }
+    }
     
-      sendMessage() {
-        this.chatService.sendMessage(this.newMessage);
-        this.newMessage = '';
-      }
+    sendMessage() {
+      this.chatService.sendMessage(this.newMessage);
+      this.newMessage = '';
+    }
 
-      
+    fnBackToMenu(){
+     //redireccionar al menú con carrito
+      this.router.navigateByUrl(`${this.idUser}/menu`);
+    }
 }

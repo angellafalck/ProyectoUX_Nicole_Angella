@@ -46,6 +46,11 @@ export class MenuClientComponent{
         });
     }
 
+    //Al clickear en nav Chat
+    fnGoToChat(){
+        this.router.navigateByUrl(`${this.user.idUser}/chat`);
+    }
+
     //Al clickear el botón de "Detalle" en product
     fnGoToProductDetail(){
         this.pizzeriaService.updateOrder(this.order);

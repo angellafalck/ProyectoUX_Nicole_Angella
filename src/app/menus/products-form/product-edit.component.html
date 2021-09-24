@@ -2,7 +2,7 @@
     <span class= "header-font"><img src="../assets/images/pizza_logo.png"width="100" height="100" >Crunchy Royal Pizza</span>
     </mat-toolbar>
 
-<body background="../assets/images/pizza-background.jpeg" style="background-size: 500px 500px;">
+<body class="fondoPizzas" style="background-size: 500px 500px;">
 
 <hr />
 <div>
@@ -13,8 +13,17 @@
 <hr />
 <div class="divPanelExtraBig paragraph-font">
     <form #productForm="ngForm" (ngSubmit)="fnSalvar(productForm.value)">
-        <div class="form-group">
+        <div class="form-group"
+        [ngClass]="{
+            error:
+            productForm.controls.title?.invalid &&
+            productForm.controls.title?.touched
+        }"
+        >
             <label for="name">Título: </label>
+            <em *ngIf="productForm.controls.title?.invalid &&
+            productForm.controls.title?.touched"
+            >Campo requerido</em>
             <input
                 [(ngModel)]="title"
                 type="text"
@@ -25,8 +34,17 @@
                 required
             />
         </div>
-        <div class="form-group">
+        <div class="form-group"
+        [ngClass]="{
+            error:
+            productForm.controls.description?.invalid &&
+            productForm.controls.description?.touched
+        }"
+        >
             <label for="description">Descripción: </label>
+            <em *ngIf="productForm.controls.description?.invalid &&
+            productForm.controls.description?.touched"
+            >Campo requerido</em>
             <textarea
                 [(ngModel)]="description"
                 type="text"
@@ -38,8 +56,17 @@
             >
             </textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group"
+        [ngClass]="{
+            error:
+            productForm.controls.price?.invalid &&
+            productForm.controls.price?.touched
+        }"
+        >
             <label for="price">Precio: </label>
+            <em *ngIf="productForm.controls.price?.invalid &&
+            productForm.controls.price?.touched"
+            >Campo requerido</em>
             <input
                 [(ngModel)]="price"
                 type="text"
@@ -50,8 +77,17 @@
                 required
             />
         </div>
-        <div class="form-group">
+        <div class="form-group"
+        [ngClass]="{
+            error:
+            productForm.controls.imageUrl?.invalid &&
+            productForm.controls.imageUrl?.touched
+        }"
+        >
             <label for="imageUrl">Url de imagen: </label>
+            <em *ngIf="productForm.controls.imageUrl?.invalid &&
+            productForm.controls.imageUrl?.touched"
+            >Campo requerido</em>
             <input
                 [(ngModel)]="imageUrl"
                 type="text"

@@ -6,3 +6,6 @@ npm install font-awesome --save
 npm install nodemailer 
 npm install --save angular-ai-chat-bot //nuevo no se usa
 
+npm install socket.io //backend
+npm i socket.io-file-client
+
